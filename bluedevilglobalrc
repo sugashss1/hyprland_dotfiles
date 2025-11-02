@@ -1,0 +1,8 @@
+[Adapters]
+2C:3B:70:95:C9:BC_powered=true
+
+[Devices]
+connectedDevices=
+
+[General]
+launchState=enable
