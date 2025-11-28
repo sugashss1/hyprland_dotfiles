@@ -1,5 +1,2 @@
 [General]
-theme=ColloidDark
-
-[Applications]
-MaterialAdw=vlc
+theme=MaterialAdw

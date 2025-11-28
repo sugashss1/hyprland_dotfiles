@@ -10,7 +10,7 @@ Show Url Nav Bar=true
 [KTextEditor Renderer]
 Animate Bracket Matching=false
 Auto Color Theme Selection=true
-Color Theme=Breeze Dark
+Color Theme=Material You Dark
 Line Height Multiplier=1
 Show Indentation Lines=false
 Show Whole Bracket Expression=false
@@ -19,6 +19,8 @@ Text Font Features=
 Word Wrap Marker=false
 
 [MainWindow]
+1920x1080 screen: Height=971
+1920x1080 screen: Width=930
 1920x1080 screen: Window-Maximized=true
 
 [filetree]

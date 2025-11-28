@@ -1,0 +1,3 @@
+enable_notifications = true
+enable_mpris = false
+current_device_name = "bluez_input.B0:38:E2:66:B9:68"
