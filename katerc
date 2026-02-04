@@ -1,5 +1,6 @@
 [General]
 Days Meta Infos=30
+PinnedDocuments=
 Save Meta Infos=true
 Show Full Path in Title=false
 Show Menu Bar=true
@@ -38,7 +39,7 @@ viewShade=106,72,116
 AllowedServerCommandLines=
 AutoHover=true
 AutoImport=true
-BlockedServerCommandLines=/usr/bin/clangd -log=error --background-index --limit-results=500 --completion-style=bundled
+BlockedServerCommandLines=/home/su/.local/share/nvim/mason/bin/clangd -log=error --background-index --limit-results=500 --completion-style=bundled,/usr/bin/clangd -log=error --background-index --limit-results=500 --completion-style=bundled
 CompletionDocumentation=true
 CompletionParens=true
 Diagnostics=true

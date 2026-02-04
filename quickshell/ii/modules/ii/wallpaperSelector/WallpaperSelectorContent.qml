@@ -57,7 +57,7 @@ MouseArea {
     }
 
     Keys.onPressed: event => {
-        if (event.key === Qt.Key_Escape) {
+      if (event.key === Qt.Key_Escape) {           
             GlobalStates.wallpaperSelectorOpen = false;
             event.accepted = true;
         } else if ((event.modifiers & Qt.ControlModifier) && event.key === Qt.Key_V) { // Intercept Ctrl+V to handle "paste to go to" in pickers
