@@ -1,0 +1,18 @@
+2025-12-23 09:21:03.426 [info] ChatSessionStore: Migrating 0 chat sessions from storage service to file system
+2025-12-23 09:21:03.820 [info] Started local extension host with pid 9176.
+2025-12-23 09:21:03.870 [error] Extension 'ms-python.debugpy CANNOT USE these API proposals 'portsAttributes'. You MUST start in extension development mode or use the --enable-proposed-api command line flag
+2025-12-23 09:21:03.871 [error] Extension 'ms-python.python CANNOT USE these API proposals 'contribEditorContentMenu, quickPickSortByLabel, testObserver, quickPickItemTooltip, terminalDataWriteEvent, terminalExecuteCommandEvent, codeActionAI, notebookReplDocument, notebookVariableProvider'. You MUST start in extension development mode or use the --enable-proposed-api command line flag
+2025-12-23 09:21:03.872 [error] Extension 'ms-python.vscode-python-envs CANNOT USE these API proposals 'terminalShellEnv'. You MUST start in extension development mode or use the --enable-proposed-api command line flag
+2025-12-23 09:21:03.924 [error] [ms-python.python]: editor/content is a proposed menu identifier. It requires 'package.json#enabledApiProposals: ["contribEditorContentMenu"]' and is only available when running out of dev or with the following command line switch: --enable-proposed-api ms-python.python
+2025-12-23 09:21:06.701 [info] [perf] Render performance baseline is 56ms
+2025-12-23 09:21:08.005 [info] Auto updating outdated extensions. ms-python.python, ms-python.vscode-python-envs
+2025-12-23 09:28:05.035 [error] An unknown error occurred. Please consult the log for more details.
+2025-12-23 09:29:14.134 [error] [chat setup] install: error undefined
+2025-12-23 09:29:18.482 [error] [chat setup] install: error undefined
+2025-12-23 09:29:23.732 [error] [chat setup] install: error undefined
+2025-12-23 09:29:25.295 [error] [chat setup] install: error undefined
+2025-12-23 09:29:26.441 [error] [chat setup] install: error NotFound: The extension 'GitHub.copilot-chat' cannot be installed because it was not found.
+2025-12-23 09:29:40.806 [error] [chat setup] install: error undefined
+2025-12-23 09:29:55.741 [error] [chat setup] install: error NotFound: The extension 'GitHub.copilot-chat' cannot be installed because it was not found.
+2025-12-23 09:30:41.933 [error] [chat setup] install: error undefined
+2025-12-23 09:31:06.823 [error] [chat setup] install: error NotFound: The extension 'GitHub.copilot-chat' cannot be installed because it was not found.

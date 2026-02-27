@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h1 class="text-2xl font-bold mb-4">Dashboard</h1>
+
+<div class="bg-white rounded shadow p-4 space-y-2">
+  <p><b>Email:</b> {{ email }}</p>
+  <p><b>Role:</b> {{ role }}</p>
+  <p><b>Tenant ID:</b> {{ tenant_id }}</p>
+</div>
+
+{% endblock %}

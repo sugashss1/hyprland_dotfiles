@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Dashboard</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+
+  <!-- Left Sidebar -->
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <h2>Dashboard</h2>
+      <p class="company">{{ session.get("company") }}</p>
+    </div>
+
+    <nav class="sidebar-nav">
+      <a href="/dashboard" class="nav-item active">Dashboard</a>
+      <a href="/tasks" class="nav-item">Tasks</a>
+      <a href="/chatbot" class="nav-item">Chatbot</a>
+
+      {% if role != "user" %}
+        <div class="nav-section">
+          <span class="nav-section-title">Admin</span>
+          <a href="/admin/users/create" class="nav-item">
+            Create User
+          </a>
+        </div>
+      {% endif %}
+    </nav>
+
+    <div class="sidebar-footer">
+      <div class="user-info">
+        <strong>{{ name }}</strong>
+        <span>{{ email }}</span>
+      </div>
+      <a href="/logout" class="logout">Logout</a>
+    </div>
+  </aside>
+
+  <!-- Main Content -->
+  <main class="main-content">
+    <div class="card">
+      <h2>Welcome</h2>
+
+      <p><strong>Name:</strong> {{ name }}</p>
+      <p><strong>Email:</strong> {{ email }}</p>
+      <p><strong>Role:</strong> {{ role }}</p>
+      <p><strong>Tenant:</strong> {{ tenant_id }}</p>
+
+      {% if role != "user" %}
+        <div class="admin">
+          <h4>Admin Actions</h4>
+          <a href="/admin/users/create">➕ Create User</a>
+        </div>
+      {% endif %}
+    </div>
+  </main>
+
+</body>
+</html>

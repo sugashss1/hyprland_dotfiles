@@ -1,0 +1,120 @@
+{% extends "base.html" %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+<div class="card">
+  <h2>Welcome</h2>
+
+  <p><strong>Name:</strong> {{ name }}</p>
+  <p><strong>Email:</strong> {{ email }}</p>
+  <p><strong>Role:</strong> {{ role }}</p>
+  <p><strong>Tenant:</strong> {{ tenant_id }}</p>
+
+  {% if role != "user" %}
+  <div class="admin">
+    <h4>Admin Actions</h4>
+    <a href="/admin/users/create">➕ Create User</a>
+  </div>
+  {% endif %}
+</div>
+  <!-- ADD TASK FORM (only for manager) -->
+  <div id="taskFormContainer" style="display:none;">
+    <h2>Add Task</h2>
+    <form id="taskForm">
+
+
+      <div>
+        <label>Project Name</label>
+        <select name="project_name" required id="projectSelect">
+          <option value="">Loading...</option>
+        </select>
+      </div>
+
+      <div>
+        <label>Title</label>
+        <input type="text" name="title" required>
+      </div>
+
+      <div>
+        <label>Description</label>
+        <textarea name="description"></textarea>
+      </div>
+
+      <div>
+        <label>Assigned To (email)</label>
+        <input type="email" name="assigned_to" required>
+      </div>
+
+      <div>
+        <label>Start Date</label>
+        <input type="date" name="start_date" required>
+      </div>
+
+      <div>
+        <label>Due Date</label>
+        <input type="date" name="due_date" required>
+      </div>
+
+      <button type="submit">Create Task</button>
+    </form>
+    <hr>
+  </div>
+<script>
+    const userRole = "{{ session.get('role') }}"; // manager / ceo / employee
+
+/* -------------------------------
+   SHOW TASK FORM FOR MANAGER ONLY
+-------------------------------- */
+if (userRole === "manager") {
+  document.getElementById("taskFormContainer").style.display = "block";
+
+  // Load projects into select
+  async function loadProjects() {
+    const res = await fetch("/api/projects");
+    const projects = await res.json();
+
+    const select = document.getElementById("projectSelect");
+    select.innerHTML = "";
+
+    projects.forEach(proj => {
+      const opt = document.createElement("option");
+      opt.value = proj.project_name;
+      opt.textContent = proj.project_name;
+      select.appendChild(opt);
+    });
+  }
+
+  loadProjects();
+
+  // Handle task creation
+  document.getElementById("taskForm").addEventListener("submit", async e => {
+    e.preventDefault();
+    const form = e.target;
+
+    const payload = {
+      project_name: form.project_name.value,
+      title: form.title.value,
+      description: form.description.value || "",
+      assigned_to: form.assigned_to.value,
+      start_date: form.start_date.value,
+      due_date: form.due_date.value
+    };
+
+    const res = await fetch("/api/tasks", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload)
+    });
+
+    if (res.ok) {
+      form.reset();
+      loadTasks();
+    } else {
+      alert("Failed to create task");
+    }
+  });
+}
+
+</script>
+{% endblock %}

@@ -1,0 +1,16 @@
+{
+  "_id": "4bca9630-2a01-414f-957e-9600280cb9ea",
+  "connectionInfo": {
+    "id": "4bca9630-2a01-414f-957e-9600280cb9ea",
+    "connectionOptions": {
+      "connectionString": "mongodb://localhost:27017/",
+      "oidc": {}
+    },
+    "savedConnectionType": "recent",
+    "favorite": {
+      "name": "sdf"
+    },
+    "lastUsed": "2025-12-05T16:51:57.660Z"
+  },
+  "version": 1
+}

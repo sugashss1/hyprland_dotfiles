@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+{% include "_navbar.html" %}
+
+<div class="container">
+  <div class="card">
+    <h2>Chatbot</h2>
+    <div id="chatBox" style="height:300px; overflow-y:auto; border:1px solid #ddd; padding:10px;"></div>
+    <input id="chatInput" placeholder="Ask something..." style="width:80%">
+    <button onclick="sendMessage()">Send</button>
+  </div>
+</div>
+
+
+
+</body>
+</html>

@@ -1,0 +1,15 @@
+2025-12-21 13:41:03.856 [info] Revived process, old id ec4fbaf7e0988dafc18500c70d3f7ccf-1 -> new id 1
+2025-12-21 13:41:03.856 [info] Revived process, old id ec4fbaf7e0988dafc18500c70d3f7ccf-2 -> new id 2
+2025-12-21 13:41:03.856 [info] Revived process, old id ec4fbaf7e0988dafc18500c70d3f7ccf-3 -> new id 3
+2025-12-21 13:41:03.997 [info] Expanding terminal instance, old id ec4fbaf7e0988dafc18500c70d3f7ccf-1 -> new id 1
+2025-12-21 13:41:03.997 [info] Expanding terminal instance, old id ec4fbaf7e0988dafc18500c70d3f7ccf-2 -> new id 2
+2025-12-21 13:41:03.997 [info] Expanding terminal instance, old id ec4fbaf7e0988dafc18500c70d3f7ccf-3 -> new id 3
+2025-12-21 13:41:04.457 [warning] Persistent process "1": Process had no disconnect runners but was an orphan
+2025-12-21 13:41:04.457 [info] Persistent process reconnection "1"
+2025-12-21 13:41:04.458 [warning] Persistent process "2": Process had no disconnect runners but was an orphan
+2025-12-21 13:41:04.458 [info] Persistent process reconnection "2"
+2025-12-21 13:41:04.458 [warning] Persistent process "3": Process had no disconnect runners but was an orphan
+2025-12-21 13:41:04.458 [info] Persistent process reconnection "3"
+2025-12-21 13:41:04.568 [info] Persistent process "1": Replaying 4228 chars and 1 size events
+2025-12-21 13:41:04.605 [info] Persistent process "2": Replaying 7667 chars and 1 size events
+2025-12-21 13:41:04.610 [info] Persistent process "3": Replaying 8404 chars and 1 size events

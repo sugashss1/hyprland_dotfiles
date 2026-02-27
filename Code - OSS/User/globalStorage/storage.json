@@ -1,0 +1,122 @@
+{
+    "telemetry.sqmId": "",
+    "telemetry.machineId": "6d13116d7ef63ec59b0a80c8810bd5d314ec88c1a0d4e0e078ee694983b7e9bc",
+    "telemetry.devDeviceId": "43fe225c-ad77-4ddb-bb06-7b7ed3d2aea2",
+    "backupWorkspaces": {
+        "workspaces": [],
+        "folders": [
+            {
+                "folderUri": "file:///home/su/Documents/aa/Galvin"
+            }
+        ],
+        "emptyWindows": []
+    },
+    "windowControlHeight": 35,
+    "profileAssociations": {
+        "workspaces": {
+            "file:///home/su/stuff/cl3/resume-insights": "__default__profile__",
+            "file:///home/su/Documents/aa/react_native": "__default__profile__",
+            "file:///home/su/Documents/aa/react_native/po": "__default__profile__",
+            "file:///home/su/Documents/aa/react_native/api": "__default__profile__",
+            "file:///home/su/Documents/aa/multi_tenant": "__default__profile__",
+            "file:///home/su/Documents/aa": "__default__profile__",
+            "file:///home/su/Documents/aa/test%20ten/gcc-hack": "__default__profile__",
+            "file:///home/su": "__default__profile__",
+            "file:///home/su/Documents/aa/gcc-hack": "__default__profile__",
+            "file:///home/su/Documents/aa/Galvin": "__default__profile__"
+        },
+        "emptyWindows": {}
+    },
+    "theme": "vs-dark",
+    "themeBackground": "#1f1f1f",
+    "windowSplash": {
+        "zoomLevel": 0,
+        "baseTheme": "vs-dark",
+        "colorInfo": {
+            "foreground": "#cccccc",
+            "background": "#1f1f1f",
+            "editorBackground": "#1f1f1f",
+            "titleBarBackground": "#181818",
+            "titleBarBorder": "#2b2b2b",
+            "activityBarBackground": "#181818",
+            "activityBarBorder": "#2b2b2b",
+            "sideBarBackground": "#181818",
+            "sideBarBorder": "#2b2b2b",
+            "statusBarBackground": "#181818",
+            "statusBarBorder": "#2b2b2b",
+            "statusBarNoFolderBackground": "#1f1f1f"
+        },
+        "layoutInfo": {
+            "sideBarSide": "left",
+            "editorPartMinWidth": 220,
+            "titleBarHeight": 35,
+            "activityBarWidth": 48,
+            "sideBarWidth": 237,
+            "auxiliaryBarWidth": 0,
+            "statusBarHeight": 22,
+            "windowBorder": false
+        }
+    },
+    "windowsState": {
+        "lastActiveWindow": {
+            "folder": "file:///home/su/Documents/aa/Galvin",
+            "backupPath": "/home/su/.config/Code - OSS/Backups/04f5685cdcc8df4baeb0df6a44672932",
+            "uiState": {
+                "mode": 0,
+                "x": 0,
+                "y": 0,
+                "width": 960,
+                "height": 520
+            }
+        },
+        "openedWindows": []
+    },
+    "windowSplashWorkspaceOverride": {
+        "layoutInfo": {
+            "sideBarWidth": 237,
+            "auxiliaryBarWidth": 529,
+            "workspaces": {
+                "ac82d649a223bf69f217d5a2d9d0fd48": {
+                    "sideBarVisible": true,
+                    "auxiliaryBarVisible": false
+                },
+                "4fe82ad2b0b5ddf66231cdef9579b5bb": {
+                    "sideBarVisible": true,
+                    "auxiliaryBarVisible": true
+                },
+                "21dad3add85d6fabe9033029ca17d266": {
+                    "sideBarVisible": true,
+                    "auxiliaryBarVisible": false
+                },
+                "2979d7774395b911baa9dcf75bc33d2c": {
+                    "sideBarVisible": true,
+                    "auxiliaryBarVisible": false
+                },
+                "c4194e17e4501c3075c82d1134c38d05": {
+                    "sideBarVisible": true,
+                    "auxiliaryBarVisible": true
+                },
+                "221892d6869a241396acfa2e628291cc": {
+                    "sideBarVisible": true,
+                    "auxiliaryBarVisible": true
+                },
+                "55550cbda074a97679c56f26250576ed": {
+                    "sideBarVisible": true,
+                    "auxiliaryBarVisible": true
+                },
+                "3797b8cc530a5399cffc5a6f9c4a7ecb": {
+                    "sideBarVisible": true,
+                    "auxiliaryBarVisible": false
+                },
+                "ec4fbaf7e0988dafc18500c70d3f7ccf": {
+                    "sideBarVisible": true,
+                    "auxiliaryBarVisible": false
+                },
+                "39ab3fd802c2e0b51d497747be5f53df": {
+                    "sideBarVisible": true,
+                    "auxiliaryBarVisible": false
+                }
+            }
+        }
+    }
+}

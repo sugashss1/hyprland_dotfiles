@@ -1,0 +1,16 @@
+<h2>Create User</h2>
+<form method="post">
+  <input name="full_name" placeholder=" Full Name" required />
+  <input name="email" placeholder="Email" required />
+  <input name="password" type="password" placeholder="Password" required />
+  <input name="tenant_id" placeholder="Tenant ID" required />
+  <input name="manager_email" placeholder="superior Email"/>
+
+
+  <select name="role">
+    <option value="user">User</option>
+    <option value="manager">Admin</option>
+  </select>
+
+  <button type="submit">Create</button>
+</form>

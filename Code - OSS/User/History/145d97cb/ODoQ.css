@@ -1,0 +1,44 @@
+body {
+  font-family: Arial;
+  background: #f4f4f4;
+}
+
+nav {
+  background: #222;
+  padding: 10px;
+}
+
+nav a {
+  color: white;
+  margin-right: 15px;
+  text-decoration: none;
+}
+
+.container {
+  background: white;
+  padding: 20px;
+  margin: 20px;
+}
+
+form input, form select {
+  margin: 5px;
+  padding: 5px;
+}
+
+button {
+  padding: 6px 12px;
+}
+
+ul {
+  list-style: none;
+}
+
+li {
+  padding: 6px;
+  border-bottom: 1px solid #ccc;
+}
+
+.login {
+  width: 300px;
+  margin: 100px auto;
+}

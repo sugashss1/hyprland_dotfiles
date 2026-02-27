@@ -1,0 +1,8 @@
+2025-12-22 07:21:12.492 [info] Started local extension host with pid 2432.
+2025-12-22 07:21:13.015 [error] Extension 'ms-python.debugpy CANNOT USE these API proposals 'portsAttributes'. You MUST start in extension development mode or use the --enable-proposed-api command line flag
+2025-12-22 07:21:13.016 [error] Extension 'ms-python.python CANNOT USE these API proposals 'contribEditorContentMenu, quickPickSortByLabel, testObserver, quickPickItemTooltip, terminalDataWriteEvent, terminalExecuteCommandEvent, codeActionAI, notebookReplDocument, notebookVariableProvider'. You MUST start in extension development mode or use the --enable-proposed-api command line flag
+2025-12-22 07:21:13.016 [error] Extension 'ms-python.vscode-python-envs CANNOT USE these API proposals 'terminalShellEnv'. You MUST start in extension development mode or use the --enable-proposed-api command line flag
+2025-12-22 07:21:13.054 [error] [ms-python.python]: editor/content is a proposed menu identifier. It requires 'package.json#enabledApiProposals: ["contribEditorContentMenu"]' and is only available when running out of dev or with the following command line switch: --enable-proposed-api ms-python.python
+2025-12-22 07:21:15.000 [error] An unknown error occurred. Please consult the log for more details.
+2025-12-22 07:21:15.194 [info] [perf] Render performance baseline is 19ms
+2025-12-22 07:25:59.188 [error] lock() request could not be registered.: InvalidStateError: lock() request could not be registered.

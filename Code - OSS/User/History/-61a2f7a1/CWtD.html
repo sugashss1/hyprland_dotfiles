@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+{% include "_navbar.html" %}
+
+<div class="container">
+  <div class="card">
+    <h2>Add Task</h2>
+    <input id="taskInput" placeholder="Task title">
+    <button onclick="addTask()">Add</button>
+  </div>
+
+  <div class="card">
+    <h2>Tasks</h2>
+    <ul id="taskList"></ul>
+  </div>
+</div>
+<script>
+async function loadTasks() {
+  const res = await fetch("/api/tasks");
+  const tasks = await res.json();
+  render(tasks);
+}
+
+async function addTask() {
+  const title = document.getElementById("taskInput").value;
+  await fetch("/api/tasks", {
+    method: "POST",
+    headers: {"Content-Type": "application/json"},
+    body: JSON.stringify({title})
+  });
+  loadTasks();
+}
+
+async function toggleTask(id, done) {
+  await fetch(`/api/tasks/${id}`, {
+    method: "PUT",
+    headers: {"Content-Type": "application/json"},
+    body: JSON.stringify({done: !done})
+  });
+  loadTasks();
+}
+
+async function deleteTask(id) {
+  await fetch(`/api/tasks/${id}`, { method: "DELETE" });
+  loadTasks();
+}
+
+function render(tasks) {
+  const list = document.getElementById("taskList");
+  list.innerHTML = "";
+  tasks.forEach(t => {
+    list.innerHTML += `
+      <li>
+        <input type="checkbox" ${t.done ? "checked" : ""}
+          onchange="toggleTask('${t.id}', ${t.done})">
+        ${t.title}
+        <button onclick="deleteTask('${t.id}')">🗑️</button>
+      </li>
+    `;
+  });
+}
+
+loadTasks();
+</script>
+
+
+</body>
+</html>

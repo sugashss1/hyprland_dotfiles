@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+<div class="card">
+  <h2>Welcome</h2>
+
+  <p><strong>Name:</strong> {{ name }}</p>
+  <p><strong>Email:</strong> {{ email }}</p>
+  <p><strong>Role:</strong> {{ role }}</p>
+  <p><strong>Tenant:</strong> {{ tenant_id }}</p>
+
+  {% if role != "user" %}
+  <div class="admin">
+    <h4>Admin Actions</h4>
+    <a href="/admin/users/create">➕ Create User</a>
+  </div>
+  {% endif %}
+</div>
+{% endblock %}

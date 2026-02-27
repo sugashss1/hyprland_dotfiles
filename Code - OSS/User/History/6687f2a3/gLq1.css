@@ -1,0 +1,286 @@
+
+.kanban {
+  display: flex;
+  gap: 20px;
+}
+
+.column {
+  flex: 1;
+  background: #f4f4f4;
+  padding: 10px;
+  border-radius: 8px;
+}
+
+.task-column {
+  min-height: 300px;
+}
+
+.task {
+  background: white;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 6px;
+  cursor: grab;
+}
+
+.nav-item {
+  @apply flex items-center rounded-md px-3 py-2 text-sm font-medium
+         text-muted-foreground hover:bg-accent hover:text-accent-foreground
+         transition;
+}
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+/* Sidebar */
+.sidebar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 240px;
+  height: 100vh;
+  background: #ffffff;
+  border-right: 1px solid #ddd;
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar-header {
+  padding: 16px;
+  border-bottom: 1px solid #ddd;
+}
+
+.sidebar-header h2 {
+  margin: 0;
+}
+
+.company {
+  font-size: 12px;
+  color: #666;
+}
+
+/* Navigation */
+.sidebar-nav {
+  flex: 1;
+  padding: 12px;
+}
+
+.nav-item {
+  display: block;
+  padding: 10px 12px;
+  margin-bottom: 4px;
+  color: #333;
+  text-decoration: none;
+  border-radius: 4px;
+}
+
+.nav-item:hover,
+.nav-item.active {
+  background: #f0f0f0;
+}
+
+.nav-section {
+  margin-top: 16px;
+}
+
+.nav-section-title {
+  display: block;
+  font-size: 11px;
+  font-weight: bold;
+  color: #777;
+  margin-bottom: 6px;
+  text-transform: uppercase;
+}
+
+/* Footer */
+.sidebar-footer {
+  padding: 16px;
+  border-top: 1px solid #ddd;
+  font-size: 13px;
+}
+
+.user-info span {
+  display: block;
+  color: #666;
+  font-size: 12px;
+}
+
+.logout {
+  display: inline-block;
+  margin-top: 10px;
+  color: red;
+  text-decoration: none;
+}
+
+/* Main Content */
+.main-content {
+  margin-left: 240px;
+  padding: 24px;
+}
+
+.card {
+  background: #fff;
+  padding: 24px;
+  border-radius: 6px;
+  max-width: 600px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* -----------------------------
+   TASK FORM - HORIZONTAL LAYOUT
+----------------------------- */
+#taskForm {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    max-width: 1000px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #fafafa;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+#taskForm div {
+    flex: 1 1 200px; /* Grow, shrink, min-width */
+    display: flex;
+    flex-direction: column;
+}
+
+#taskForm label {
+    font-weight: 600;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+#taskForm input[type="text"],
+#taskForm input[type="email"],
+#taskForm input[type="date"],
+#taskForm select,
+#taskForm textarea {
+    padding: 8px 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+#taskForm textarea {
+    resize: vertical;
+    min-height: 60px;
+}
+
+#taskForm button[type="submit"] {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #4CAF50;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    align-self: flex-end; /* Push button to bottom of form row */
+}
+
+#taskForm button[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+/* Responsive: stack fields on smaller screens */
+@media (max-width: 768px) {
+    #taskForm {
+        flex-direction: column;
+    }
+    #taskForm button[type="submit"] {
+        align-self: stretch;
+    }
+}
+
+/* Tooltip container */
+.task-tooltip {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.task-tooltip .tooltiptext {
+  visibility: hidden;
+  width: 200px;
+  background-color: #333;
+  color: #fff;
+  text-align: left;
+  padding: 5px 10px;
+  border-radius: 4px;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%; /* Position above */
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.task-tooltip:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+}
+
+.task button {
+  margin-top: 5px;
+  padding: 3px 6px;
+  font-size: 12px;
+  cursor: pointer;
+}
+/* -----------------------------
+   PROJECT FORM - HORIZONTAL LAYOUT
+----------------------------- */
+#projectForm {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    max-width: 1000px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #fafafa;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+#projectForm div {
+    flex: 1 1 200px; /* grow, shrink, min-width */
+    display: flex;
+    flex-direction: column;
+}
+
+#projectForm label {
+    font-weight: 600;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+#projectForm input[type="text"],
+#projectForm input[type="date"],
+#projectForm select,
+#projectForm textarea {
+    padding: 8px 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+#projectForm textarea {
+    resize: vertical;
+    min-height: 60px;
+}
+
+#projectForm button[type="submit"] {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #4CAF50;
+    color: white;
+

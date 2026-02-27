@@ -119,8 +119,8 @@
                 "showOnlyWhenLocked": false,
                 "style": "cookie",
                 "styleLocked": "cookie",
-                "x": 1306.76953125,
-                "y": 575.8710937499999
+                "x": 1556.6054687500005,
+                "y": 523.0624999999999
             },
             "weather": {
                 "enable": false,
@@ -166,7 +166,7 @@
         "utilButtons": {
             "showColorPicker": false,
             "showDarkModeToggle": false,
-            "showKeyboardToggle": false,
+            "showKeyboardToggle": true,
             "showMicToggle": false,
             "showPerformanceProfileToggle": false,
             "showScreenRecord": false,
@@ -211,7 +211,7 @@
         "superKey": "",
         "useFnSymbol": false,
         "useMacSymbol": false,
-        "useMouseSymbol": false
+        "useMouseSymbol": true
     },
     "conflictKiller": {
         "autoKillNotificationDaemons": false,
@@ -227,7 +227,7 @@
         "hoverToReveal": false,
         "ignoredAppRegexes": [
         ],
-        "monochromeIcons": true,
+        "monochromeIcons": false,
         "pinnedApps": [
             "org.kde.dolphin",
             "kitty"
@@ -280,7 +280,7 @@
             "extraZoom": 1.26,
             "radius": 100
         },
-        "centerClock": true,
+        "centerClock": false,
         "launchOnStartup": false,
         "materialShapeChars": true,
         "security": {
@@ -347,7 +347,7 @@
         "targetRegions": {
             "content": true,
             "contentRegionOpacity": 0.8,
-            "layers": false,
+            "layers": true,
             "opacity": 0.3,
             "selectionPadding": 5,
             "showLabel": false,

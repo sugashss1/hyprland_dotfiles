@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>{% block title %}App{% endblock %}</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+
+  <!-- Left Sidebar -->
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <h2>Dashboard</h2>
+      <p class="company">{{ session.get("company") }}</p>
+    </div>
+
+    <nav class="sidebar-nav">
+      <a href="/dashboard"
+         class="nav-item {% if request.path == '/dashboard' %}active{% endif %}">
+        Dashboard
+      </a>
+
+      <a href="/tasks"
+         class="nav-item {% if request.path == '/tasks' %}active{% endif %}">
+        Tasks
+      </a>
+
+      <a href="/chatbot"
+         class="nav-item {% if request.path == '/chatbot' %}active{% endif %}">
+        Chatbot
+      </a>
+
+      {% if session.get("role") != "user" %}
+      <div class="nav-section">
+        <span class="nav-section-title">Admin</span>
+        <a href="/admin/users/create"
+           class="nav-item">
+          Create User
+        </a>
+      </div>
+      {% endif %}
+    </nav>
+
+    <div class="sidebar-footer">
+      <div class="user-info">
+        <strong>{{ session.get("name") }}</strong>
+        <span>{{ session.get("email") }}</span>
+      </div>
+      <a href="/logout" class="logout">Logout</a>
+    </div>
+  </aside>
+
+  <!-- Main Content -->
+  <main class="main-content">
+    {% block content %}{% endblock %}
+  </main>
+
+</body>
+</html>

@@ -1,0 +1,29 @@
+.kanban {
+  display: flex;
+  gap: 20px;
+}
+
+.column {
+  flex: 1;
+  background: #f4f4f4;
+  padding: 10px;
+  border-radius: 8px;
+}
+
+.task-column {
+  min-height: 300px;
+}
+
+.task {
+  background: white;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 6px;
+  cursor: grab;
+}
+
+.nav-item {
+  @apply flex items-center rounded-md px-3 py-2 text-sm font-medium
+         text-muted-foreground hover:bg-accent hover:text-accent-foreground
+         transition;
+}

@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>{% block title %}App{% endblock %}</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+
+  <!-- Left Sidebar -->
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <h2>Dashboard</h2>
+      <p class="company">{{ session.get("company") }}</p>
+    </div>
+
+    <nav class="sidebar-nav">
+      <a href="/dashboard"
+         class="nav-item {% if request.path == '/dashboard' %}active{% endif %}">
+        Dashboard
+      </a>
+      <a href="/projects"
+         class="nav-item {% if request.path == '/Projects' %}active{% endif %}">
+        Projects
+      </a>
+      <a href="/tasks"
+         class="nav-item {% if request.path == '/tasks' %}active{% endif %}">
+        Tasks
+      </a>
+
+      <!-- <a href="/chatbot"
+         class="nav-item {% if request.path == '/chatbot' %}active{% endif %}">
+        Chatbot
+      </a> -->
+
+      {% if session.get("role") != "user" %}
+      <div class="nav-section">
+        <span class="nav-section-title">Admin</span>
+        <a href="/admin/users/create"
+           class="nav-item">
+          Create User
+        </a>
+      </div>
+      {% endif %}
+    </nav>
+
+    <div class="sidebar-footer">
+      <div class="user-info">
+        <strong>{{ session.get("name") }}</strong>
+        <span>{{ session.get("email") }}</span>
+      </div>
+      <a href="/logout" class="logout">Logout</a>
+    </div>
+  </aside>
+
+
+
+  <!-- Chatbot Floating Button and Panel -->
+<div id="chatbotContainer" style="position:fixed; bottom:20px; right:20px; z-index:9999; font-family:Arial,sans-serif;">
+  <!-- Toggle Button -->
+  <button id="chatbotToggle" style="width:60px; height:60px; border-radius:50%; background:#4CAF50; border:none; color:white; font-size:24px; cursor:pointer; box-shadow:0 2px 8px rgba(0,0,0,0.2);">
+    🤖
+  </button>
+
+  <!-- Chat Panel -->
+  <div id="chatbotPanel" style="display:none; width:360px; height:500px; position:absolute; bottom:70px; right:0; border:1px solid #ddd; border-radius:8px; background:white; box-shadow:0 4px 15px rgba(0,0,0,0.2); flex-direction:column; display:flex;">
+    
+    <!-- Header -->
+    <div style="padding:10px; border-bottom:1px solid #ddd; display:flex; justify-content:space-between; align-items:center; background:#f5f5f5; border-top-left-radius:8px; border-top-right-radius:8px;">
+      <strong>AI Assistant</strong>
+      <button id="chatbotClose" style="border:none; background:none; cursor:pointer; font-size:16px;">✖</button>
+    </div>
+
+    <!-- Chat messages -->
+    <div id="chatBox" style="flex:1; padding:10px; overflow-y:auto; background:#fafafa;"></div>
+
+    <!-- Input -->
+    <div style="padding:10px; border-top:1px solid #ddd; display:flex; gap:5px;">
+      <input id="chatInput" placeholder="Ask something..." style="flex:1; padding:8px; border:1px solid #ccc; border-radius:5px;">
+      <button id="chatSend" style="padding:8px 12px; border:none; background:#4CAF50; color:white; border-radius:5px; cursor:pointer;">Send</button>
+    </div>
+  </div>
+</div>
+
+<!-- Markdown parser -->
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const toggleBtn = document.getElementById("chatbotToggle");
+  const panel = document.getElementById("chatbotPanel");
+  const closeBtn = document.getElementById("chatbotClose");
+  const chatBox = document.getElementById("chatBox");
+  const chatInput = document.getElementById("chatInput");
+  const sendBtn = document.getElementById("chatSend");
+
+  // Toggle panel open/close
+  toggleBtn.addEventListener("click", () => {
+    if (panel.style.display === "none" || panel.style.display === "") {
+      panel.style.display = "flex";
+    } else {
+      panel.style.display = "none";
+    }
+  });
+
+  // Close button also closes panel
+  closeBtn.addEventListener("click", () => {
+    panel.style.display = "none";
+  });
+
+  function escapeHtml(text) {
+    const div = document.createElement("div");
+    div.innerText = text;
+    return div.innerHTML;
+  }
+
+  async function loadChatHistory() {
+    const res = await fetch("/api/chat/history");
+    const data = await res.json();
+    chatBox.innerHTML = "";
+    data.history.forEach(m => {
+      if (m.role === "user") {
+        chatBox.innerHTML += `<p><b>You:</b> ${escapeHtml(m.content)}</p>`;
+      } else {
+        chatBox.innerHTML += `<div><b>Bot:</b> ${marked.parse(m.content)}</div>`;
+      }
+    });
+    chatBox.scrollTop = chatBox.scrollHeight;
+  }
+
+  async function sendMessage() {
+    const message = chatInput.value.trim();
+    if (!message) return;
+
+    // Add user message to chat
+    chatBox.innerHTML += `<p><b>You:</b> ${escapeHtml(message)}</p>`;
+    chatBox.scrollTop = chatBox.scrollHeight;
+    chatInput.value = "";
+
+    try {
+      const res = await fetch("/api/chat", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ message })
+      });
+      const data = await res.json();
+
+      // Add bot response
+      chatBox.innerHTML += `<div><b>Bot:</b> ${marked.parse(data.reply)}</div>`;
+      chatBox.scrollTop = chatBox.scrollHeight;
+    } catch (err) {
+      chatBox.innerHTML += `<div style="color:red;"><b>Bot:</b> Error sending message</div>`;
+      chatBox.scrollTop = chatBox.scrollHeight;
+    }
+  }
+
+  sendBtn.addEventListener("click", sendMessage);
+  chatInput.addEventListener("keydown", (e) => {
+    if (e.key === "Enter") sendMessage();
+  });
+
+  // Load initial history
+  loadChatHistory();
+});
+</script>
+
+
+
+  <!-- Main Content -->
+  <main class="main-content">
+    {% block content %}{% endblock %}
+  </main>
+
+</body>
+</html>

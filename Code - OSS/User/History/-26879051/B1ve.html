@@ -1,0 +1,24 @@
+<h2>Create User</h2>
+<form method="post">
+  <input name="full_name" placeholder=" Full Name" required />
+  <input name="email" placeholder="Email" required />
+  <input name="password" type="password" placeholder="Password" required />
+  <!-- <input name="tenant_id" placeholder="Tenant ID" required /> -->
+  <!-- <input name="manager_email" placeholder="superior Email"/> -->
+  {% if role == "admin" %}
+    <input name="company" placeholder="company"/>
+  {% endif %}
+
+
+
+
+  <select name="role">
+    <option value="user">User</option>
+    <option value="manager">Manager</option>
+    {% if role == "admin" %}
+      <option value="ceo">CEO</option>
+    {% endif %}
+  </select>
+
+  <button type="submit">Create</button>
+</form>

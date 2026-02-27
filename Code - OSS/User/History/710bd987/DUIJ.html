@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h1 class="text-2xl font-bold mb-4">Tasks</h1>
+
+<form id="taskForm" class="bg-white p-4 rounded shadow grid grid-cols-2 gap-3 mb-6">
+  <input id="title" placeholder="Title" class="border p-2 rounded" required>
+  <input id="assigned_to" placeholder="Assigned To (email)" class="border p-2 rounded" required>
+
+  <input id="start_date" type="date" class="border p-2 rounded" required>
+  <input id="due_date" type="date" class="border p-2 rounded" required>
+
+  <select id="task_type" class="border p-2 rounded col-span-2">
+    <option value="PROJECT">PROJECT</option>
+    <option value="GOAL">GOAL</option>
+  </select>
+
+  <button class="bg-blue-600 text-white py-2 rounded col-span-2 hover:bg-blue-700">
+    Add Task
+  </button>
+</form>
+
+<ul id="tasksList" class="space-y-2"></ul>
+
+{% endblock %}

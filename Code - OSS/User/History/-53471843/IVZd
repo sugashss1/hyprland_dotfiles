@@ -1,0 +1,3 @@
+GOOGLE_APPLICATION_CREDENTIALS=multi-tanant-firebase.json
+GOOGLE_CLOUD_PROJECT=multi-tanant
+llm_api=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

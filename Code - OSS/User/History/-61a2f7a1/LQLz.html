@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Tasks</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+{% include "_navbar.html" %}
+
+<div class="container">
+
+  <!-- Add Task -->
+  <div class="card">
+    <h2>Add Task</h2>
+
+    <input id="title" placeholder="Task title">
+    <input id="project_name" placeholder="Project name (optional)">
+    <input id="assigned_to" placeholder="Assign to (email)">
+    
+    <select id="task_type">
+      <option value="PROJECT">PROJECT</option>
+      <option value="GOAL">GOAL</option>
+    </select>
+
+    <input id="start_date" type="date">
+    <input id="due_date" type="date">
+
+    <textarea id="description" placeholder="Description"></textarea>
+
+    <button onclick="addTask()">Add Task</button>
+  </div>
+
+  <!-- Task List -->
+  <div class="card">
+    <h2>Tasks</h2>
+    <ul id="taskList"></ul>
+  </div>
+
+</div>
+
+<script>
+async function loadTasks() {
+  const res = await fetch("/api/tasks");
+  const tasks = await res.json();
+  render(tasks);
+}
+
+async function addTask() {
+  const payload = {
+    title: document.getElementById("title").value,
+    project_name: document.getElementById("project_name").value || null,
+    assigned_to: document.getElementById("assigned_to").value,
+    task_type: document.getElementById("task_type").value,
+    start_date: document.getElementById("start_date").value,
+    due_date: document.getElementById("due_date").value,
+    description: document.getElementById("description").value
+  };
+
+  await fetch("/api/tasks", {
+    method: "POST",
+    headers: {"Content-Type": "application/json"},
+    body: JSON.stringify(payload)
+  });
+
+  clearForm();
+  loadTasks();
+}
+
+async function updateStatus(id, status) {
+  const newStatus = status === "DONE" ? "TODO" : "DONE";
+
+  await fetch(`/api/tasks/${id}`, {
+    method: "PUT",
+    headers: {"Content-Type": "application/json"},
+    body: JSON.stringify({ status: newStatus })
+  });
+
+  loadTasks();
+}
+
+async function deleteTask(id) {
+  await fetch(`/api/tasks/${id}`, { method: "DELETE" });
+  loadTasks();
+}
+
+function render(tasks) {
+  const list = document.getElementById("taskList");
+  list.innerHTML = "";
+
+  tasks.forEach(t => {
+    list.innerHTML += `
+      <li class="task-item">
+        <strong>${t.title}</strong>
+        <div class="meta">
+          <span>Project: ${t.project_name || "-"}</span>
+          <span>Assigned to: ${t.assigned_to}</span>
+          <span>Due: ${new Date(t.due_date).toLocaleDateString()}</span>
+          <span>Status: ${t.status}</span>
+        </div>
+
+        <button onclick="updateStatus('${t.id}', '${t.status}')">
+          ${t.status === "DONE" ? "Mark TODO" : "Mark DONE"}
+        </button>
+
+        <button onclick="deleteTask('${t.id}')">Delete</button>
+      </li>
+    `;
+  });
+}
+
+function clearForm() {
+  ["title", "project_name", "assigned_to", "description"].forEach(
+    id => document.getElementById(id).value = ""
+  );
+}
+
+loadTasks();
+</script>
+
+</body>
+</html>

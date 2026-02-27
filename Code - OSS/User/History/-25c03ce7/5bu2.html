@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Dashboard</title>
+  <link rel="stylesheet" href="/static/style.css">
+
+</head>
+
+<body>
+  {% include "_navbar.html" %}
+  <div class="card">
+    <h2>Welcome</h2>
+    <p><strong>Name:</strong> {{ name }}</p>
+    <p><strong>Email:</strong> {{ email }}</p>
+    <p><strong>Role:</strong> {{ role }}</p>
+    <p><strong>Tenant:</strong> {{ tenant_id }}</p>
+
+    {% if role != "user" %}
+      <div class="admin">
+        <h4>Admin Actions</h4>
+        <a href="/admin/users/create">➕ Create User</a>
+      </div>
+    {% endif %}
+
+    <a href="/logout">Logout</a>
+  </div>
+</body>
+</html>

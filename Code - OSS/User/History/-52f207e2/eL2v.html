@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+{% include "_navbar.html" %}
+
+<div class="container">
+  <div class="card">
+    <h2>Chatbot</h2>
+    <div id="chatBox" style="height:300px; overflow-y:auto; border:1px solid #ddd; padding:10px;"></div>
+    <input id="chatInput" placeholder="Ask something..." style="width:80%">
+    <button onclick="sendMessage()">Send</button>
+  </div>
+</div>
+
+<script>
+async function sendMessage() {
+  const input = document.getElementById("chatInput");
+  const box = document.getElementById("chatBox");
+
+  box.innerHTML += `<p><b>You:</b> ${input.value}</p>`;
+
+  const res = await fetch("/api/chat", {
+    method: "POST",
+    headers: {"Content-Type": "application/json"},
+    body: JSON.stringify({ message: input.value })
+  });
+
+  const data = await res.json();
+  box.innerHTML += `<p><b>Bot:</b> ${data.reply}</p>`;
+
+  input.value = "";
+}
+</script>
+
+
+</body>
+</html>

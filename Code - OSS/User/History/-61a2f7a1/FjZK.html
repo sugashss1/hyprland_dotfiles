@@ -1,0 +1,107 @@
+{% extends "base.html" %}
+
+{% block title %}Kanban Board{% endblock %}
+
+{% block content %}
+
+<div class="container">
+  <h1>Kanban Board</h1>
+  <p>Drag and drop tasks to update their status</p>
+
+  <!-- KANBAN BOARD -->
+  <div class="kanban">
+    <div class="column">
+      <h3>TODO</h3>
+      <div id="todo" class="task-column"></div>
+    </div>
+
+    <div class="column">
+      <h3>IN PROGRESS</h3>
+      <div id="in_progress" class="task-column"></div>
+    </div>
+
+    <div class="column">
+      <h3>DONE</h3>
+      <div id="done" class="task-column"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+/* -------------------------------
+   LOAD & RENDER TASKS
+-------------------------------- */
+async function loadTasks() {
+  const res = await fetch("/api/tasks");
+  const tasks = await res.json();
+  render(tasks);
+}
+
+function render(tasks) {
+  ["todo", "in_progress", "done"].forEach(id => {
+    document.getElementById(id).innerHTML = "";
+  });
+
+  tasks.forEach(task => {
+    const el = document.createElement("div");
+    el.className = "task";
+    el.draggable = true;
+
+    el.title = task.description || "";  // Tooltip on hover
+
+    el.ondragstart = e => {
+      e.dataTransfer.setData("id", task.id);
+    };
+
+    el.innerHTML = `
+      <strong>${task.title}</strong>
+      <div>
+        <small>${task.project_name || "-"}</small><br>
+        <small>${task.assigned_to}</small>
+      </div>
+    `;
+
+    // Add delete button if task is DONE
+    if ((task.status || "TODO").toUpperCase() === "DONE") {
+      const deleteBtn = document.createElement("button");
+      deleteBtn.textContent = "Delete";
+      deleteBtn.style.marginTop = "5px";
+      deleteBtn.onclick = async () => {
+        if (confirm("Are you sure you want to delete this task?")) {
+          await fetch(`/api/tasks/${task.id}`, { method: "DELETE" });
+          loadTasks();
+        }
+      };
+      el.appendChild(deleteBtn);
+    }
+
+    const columnId = (task.status || "TODO").toLowerCase();
+    const column = document.getElementById(columnId);
+    if (column) column.appendChild(el);
+  });
+}
+
+/* -------------------------------
+   UPDATE STATUS (DRAG & DROP)
+-------------------------------- */
+async function updateStatus(id, status) {
+  await fetch(`/api/tasks/${id}`, {
+    method: "PUT",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ status })
+  });
+}
+
+document.querySelectorAll(".task-column").forEach(col => {
+  col.ondragover = e => e.preventDefault();
+  col.ondrop = async e => {
+    const id = e.dataTransfer.getData("id");
+    await updateStatus(id, col.id.toUpperCase());
+    loadTasks();
+  };
+});
+
+loadTasks();
+</script>
+
+{% endblock %}

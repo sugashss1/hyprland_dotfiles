@@ -1,0 +1,4 @@
+[General]
+ManageVirtualConnections=false
+SystemConnectionsByDefault=false
+UnlockModemOnDetection=true

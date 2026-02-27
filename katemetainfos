@@ -1,29 +1,29 @@
-[file:///home/su/.cache/quickshell/crashes/n617cqc9t/executable.txt]
-Checksum=d2a51f4d0c080939fa490fb0266f2c065416e4e8
+[file:///home/su/Games/Monster Hunter Rise Sunbreak/steam_api64.emp]
+Checksum=d742a1eb8020237c56574bb964fe9fcc5fecc658
 Encoding=ISO-8859-1
-Time=2026,1,24,5,18,8.625,UTC
-URL=file:///home/su/.cache/quickshell/crashes/n617cqc9t/executable.txt
+Time=2026,2,14,14,57,4.763,UTC
+URL=file:///home/su/Games/Monster Hunter Rise Sunbreak/steam_api64.emp
 
-[file:///home/su/.cache/quickshell/crashes/n617cqc9t/log.qslog.log]
-Checksum=6c65b6d4aec71ab161e589b5d0a6e8ee87fa5630
+[file:///home/su/Games/Windows-UZDoom-4.14/licenses.zip]
+Checksum=713d2998a8eed1b1fd789c2b596ecea71ba71863
 Encoding=ISO-8859-1
-Time=2026,1,24,5,17,45.368,UTC
-URL=file:///home/su/.cache/quickshell/crashes/n617cqc9t/log.qslog.log
-
-[file:///home/su/.cache/quickshell/crashes/n617cqc9t/minidump.dmp.log]
-Checksum=62286db56d7d1fac9ad946e04113d1832ac79c31
-Encoding=ISO-8859-1
-Time=2026,1,24,5,18,2.13,UTC
-URL=file:///home/su/.cache/quickshell/crashes/n617cqc9t/minidump.dmp.log
-
-[file:///home/su/Games/Hollow Knight %5BFitGirl Repack%5D/fg-02.bin]
-Checksum=78fb470171429c49b83587364b9b9d80ffbd34c9
-Encoding=ISO-8859-1
-Time=2026,1,2,11,22,38.621,UTC
-URL=file:///home/su/Games/Hollow Knight %5BFitGirl Repack%5D/fg-02.bin
+Time=2026,2,11,6,27,27.345,UTC
+URL=file:///home/su/Games/Windows-UZDoom-4.14/licenses.zip
 
 [file:///home/su/Pictures/live-wallpaper/shizuka-takopi.3840x2160.mp4]
 Checksum=972eaca239153fe78ff66c910e7e286347257d1e
 Encoding=ISO-8859-1
 Time=2026,1,28,4,3,45.185,UTC
 URL=file:///home/su/Pictures/live-wallpaper/shizuka-takopi.3840x2160.mp4
+
+[file:///run/media/su/HP USB321FD/moto phone/Download/Super Mario Bros 3 (PC10)/Super Mario Bros 3 (PC10).nes]
+Checksum=321d93e0184db3520a4bec5a7afad9b8109da688
+Encoding=ISO-8859-1
+Time=2026,2,6,6,1,56.968,UTC
+URL=file:///run/media/su/HP USB321FD/moto phone/Download/Super Mario Bros 3 (PC10)/Super Mario Bros 3 (PC10).nes
+
+[file:///usr/lib/libGLX_nvidia.so.0]
+Checksum=63ae2e975edc637dd633174eeb5f9125c36aa6e6
+Encoding=ISO-8859-1
+Time=2026,2,25,14,31,46.54,UTC
+URL=file:///usr/lib/libGLX_nvidia.so.0

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="/static/style.css">
+
+  <!-- Markdown renderer -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+  <style>
+    #chatBox table {
+      border-collapse: collapse;
+      width: 100%;
+    }
+    #chatBox th, #chatBox td {
+      border: 1px solid #ccc;
+      padding: 6px;
+      text-align: left;
+    }
+    #chatBox th {
+      background: #f5f5f5;
+    }
+  </style>
+</head>
+<body>
+
+{% include "_navbar.html" %}
+
+<div class="container">
+  <div class="card">
+    <h2>Chatbot</h2>
+
+    <div id="chatBox"
+         style="height:300px; overflow-y:auto; border:1px solid #ddd; padding:10px;">
+    </div>
+
+    <input id="chatInput" placeholder="Ask something..." style="width:80%">
+    <button onclick="sendMessage()">Send</button>
+  </div>
+</div>
+
+<script>
+async function sendMessage() {
+  const input = document.getElementById("chatInput");
+  const box = document.getElementById("chatBox");
+
+  const message = input.value.trim();
+  if (!message) return;
+
+  const res = await fetch("/api/chat", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ message })
+  });
+
+  const data = await res.json();
+
+  // Re-render full chat history from server
+  box.innerHTML = "";
+
+  data.history.forEach(m => {
+    if (m.role === "user") {
+      box.innerHTML += `
+        <p><b>You:</b> ${escapeHtml(m.content)}</p>
+      `;
+    } else {
+      box.innerHTML += `
+        <div><b>Bot:</b>${marked.parse(m.content)}</div>
+      `;
+    }
+  });
+
+  box.scrollTop = box.scrollHeight;
+  input.value = "";
+}
+
+  // Prevent XSS from user input
+  function escapeHtml(text) {
+    const div = document.createElement("div");
+    div.innerText = text;
+    return div.innerHTML;
+  }
+
+  async function loadChatHistory() {
+    const box = document.getElementById("chatBox");
+
+    const res = await fetch("/api/chat/history");
+    const data = await res.json();
+
+    box.innerHTML = "";
+
+    data.history.forEach(m => {
+      if (m.role === "user") {
+        box.innerHTML += `
+          <p><b>You:</b> ${escapeHtml(m.content)}</p>
+        `;
+      } else {
+        box.innerHTML += `
+          <div><b>Bot:</b>${marked.parse(m.content)}</div>
+        `;
+      }
+    });
+
+    box.scrollTop = box.scrollHeight;
+  }
+  document.addEventListener("DOMContentLoaded", loadChatHistory);
+
+</script>
+
+
+</body>
+</html>

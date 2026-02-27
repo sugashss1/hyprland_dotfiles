@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>{% block title %}App{% endblock %}</title>
+  <link href="/static/css/app.css" rel="stylesheet">
+</head>
+<body class="bg-muted">
+
+  {% include "partials/sidebar.html" %}
+
+  <main class="ml-64 p-6">
+    {% block content %}{% endblock %}
+  </main>
+
+</body>
+</html>

@@ -1,0 +1,196 @@
+{% extends "base.html" %}
+
+{% block title %}Kanban Board{% endblock %}
+
+{% block content %}
+
+<div class="container">
+  <h1>Kanban Board</h1>
+  <p>Drag and drop tasks to update their status</p>
+
+  <!-- ADD TASK FORM (only for manager) -->
+  <div id="taskFormContainer" style="display:none;">
+    <h2>Add Task</h2>
+    <form id="taskForm">
+      <div>
+        <label>Task Type</label>
+        <select name="task_type" required>
+          <option value="PROJECT">PROJECT</option>
+          <option value="GOAL">GOAL</option>
+        </select>
+      </div>
+
+      <div>
+        <label>Project Name</label>
+        <select name="project_name" required id="projectSelect">
+          <option value="">Loading...</option>
+        </select>
+      </div>
+
+      <div>
+        <label>Title</label>
+        <input type="text" name="title" required>
+      </div>
+
+      <div>
+        <label>Description</label>
+        <textarea name="description"></textarea>
+      </div>
+
+      <div>
+        <label>Assigned To (email)</label>
+        <input type="email" name="assigned_to" required>
+      </div>
+
+      <div>
+        <label>Start Date</label>
+        <input type="date" name="start_date" required>
+      </div>
+
+      <div>
+        <label>Due Date</label>
+        <input type="date" name="due_date" required>
+      </div>
+
+      <button type="submit">Create Task</button>
+    </form>
+    <hr>
+  </div>
+
+  <!-- KANBAN BOARD -->
+  <div class="kanban">
+    <div class="column">
+      <h3>TODO</h3>
+      <div id="todo" class="task-column"></div>
+    </div>
+
+    <div class="column">
+      <h3>IN PROGRESS</h3>
+      <div id="in_progress" class="task-column"></div>
+    </div>
+
+    <div class="column">
+      <h3>DONE</h3>
+      <div id="done" class="task-column"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+const userRole = "{{ session.get('role') }}"; // manager / ceo / employee
+
+/* -------------------------------
+   SHOW TASK FORM FOR MANAGER ONLY
+-------------------------------- */
+if (userRole === "manager") {
+  document.getElementById("taskFormContainer").style.display = "block";
+
+  // Load projects into select
+  async function loadProjects() {
+    const res = await fetch("/api/projects");
+    const projects = await res.json();
+
+    const select = document.getElementById("projectSelect");
+    select.innerHTML = "";
+
+    projects.forEach(proj => {
+      const opt = document.createElement("option");
+      opt.value = proj.project_name;
+      opt.textContent = proj.project_name;
+      select.appendChild(opt);
+    });
+  }
+
+  loadProjects();
+
+  // Handle task creation
+  document.getElementById("taskForm").addEventListener("submit", async e => {
+    e.preventDefault();
+    const form = e.target;
+
+    const payload = {
+      task_type: form.task_type.value,
+      project_name: form.project_name.value,
+      title: form.title.value,
+      description: form.description.value || "",
+      assigned_to: form.assigned_to.value,
+      start_date: form.start_date.value,
+      due_date: form.due_date.value
+    };
+
+    const res = await fetch("/api/tasks", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload)
+    });
+
+    if (res.ok) {
+      form.reset();
+      loadTasks();
+    } else {
+      alert("Failed to create task");
+    }
+  });
+}
+
+/* -------------------------------
+   LOAD & RENDER TASKS
+-------------------------------- */
+async function loadTasks() {
+  const res = await fetch("/api/tasks");
+  const tasks = await res.json();
+  render(tasks);
+}
+
+function render(tasks) {
+  ["todo", "in_progress", "done"].forEach(id => {
+    document.getElementById(id).innerHTML = "";
+  });
+
+  tasks.forEach(task => {
+    const el = document.createElement("div");
+    el.className = "task";
+    el.draggable = true;
+
+    el.ondragstart = e => {
+      e.dataTransfer.setData("id", task.id);
+    };
+
+    el.innerHTML = `
+      <strong>${task.title}</strong>
+      <div>
+        <small>${task.project_name || "-"}</small><br>
+        <small>${task.assigned_to}</small>
+      </div>
+    `;
+
+    const columnId = (task.status || "TODO").toLowerCase();
+    const column = document.getElementById(columnId);
+    if (column) column.appendChild(el);
+  });
+}
+
+/* -------------------------------
+   UPDATE STATUS (DRAG & DROP)
+-------------------------------- */
+async function updateStatus(id, status) {
+  await fetch(`/api/tasks/${id}`, {
+    method: "PUT",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ status })
+  });
+}
+
+document.querySelectorAll(".task-column").forEach(col => {
+  col.ondragover = e => e.preventDefault();
+  col.ondrop = async e => {
+    const id = e.dataTransfer.getData("id");
+    await updateStatus(id, col.id.toUpperCase());
+    loadTasks();
+  };
+});
+
+loadTasks();
+</script>
+
+{% endblock %}

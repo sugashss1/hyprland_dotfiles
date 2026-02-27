@@ -1,0 +1,101 @@
+<head>
+  <style>
+    /* -----------------------------
+   CREATE USER FORM STYLING
+----------------------------- */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding-top: 50px;
+    margin: 0;
+}
+
+form {
+    background-color: #fff;
+    padding: 30px 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    width: 100%;
+    max-width: 450px;
+    box-sizing: border-box;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+input, select {
+    width: 100%;
+    padding: 10px 12px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    box-sizing: border-box;
+}
+
+input:focus, select:focus {
+    border-color: #4CAF50;
+    outline: none;
+}
+
+select {
+    background-color: #fff;
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    background-color: #4CAF50;
+    color: white;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.2s ease;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+/* Optional: Responsive */
+@media (max-width: 480px) {
+    form {
+        padding: 20px;
+    }
+}
+
+  </style>
+</head>
+
+<form method="post">
+  <h2>Create User</h2>
+  <input name="full_name" placeholder=" Full Name" required />
+  <input name="email" placeholder="Email" required />
+  <input name="password" type="password" placeholder="Password" required />
+  <!-- <input name="tenant_id" placeholder="Tenant ID" required /> -->
+  <!-- <input name="manager_email" placeholder="superior Email"/> -->
+  {% if role == "admin" %}
+    <input name="company" placeholder="company"/>
+  {% endif %}
+
+
+
+
+  <select name="role">
+    <option value="user">Employee</option>
+    <option value="manager">Manager</option>
+    {% if role == "admin" %}
+      <option value="ceo">CEO</option>
+    {% endif %}
+  </select>
+
+  <button type="submit">Create</button>
+</form>

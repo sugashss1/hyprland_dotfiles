@@ -1,0 +1,45 @@
+2025-12-21 20:15:16.309 [info] [main] Log level: Info
+2025-12-21 20:15:16.309 [info] [main] Validating found git in: "git"
+2025-12-21 20:15:16.309 [info] [main] Using git "2.52.0" from "git"
+2025-12-21 20:15:16.309 [info] [Model][doInitialScan] Initial repository scan started
+2025-12-21 20:15:16.309 [info] > git rev-parse --show-toplevel [10ms]
+2025-12-21 20:15:16.309 [info] > git rev-parse --git-dir --git-common-dir --show-superproject-working-tree [25ms]
+2025-12-21 20:15:16.309 [info] [Model][openRepository] Opened repository (path): /home/su/Documents/aa/multi_tenant
+2025-12-21 20:15:16.309 [info] [Model][openRepository] Opened repository (real path): /home/su/Documents/aa/multi_tenant
+2025-12-21 20:15:16.309 [info] [Model][openRepository] Opened repository (kind): repository
+2025-12-21 20:15:16.309 [info] > git rev-parse --show-toplevel [2ms]
+2025-12-21 20:15:16.309 [info] > git config --get commit.template [9ms]
+2025-12-21 20:15:16.309 [info] > git rev-parse --show-toplevel [19ms]
+2025-12-21 20:15:16.319 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/main refs/remotes/main [11ms]
+2025-12-21 20:15:16.321 [info] > git rev-parse --show-toplevel [2ms]
+2025-12-21 20:15:16.340 [info] > git status -z -uall [8ms]
+2025-12-21 20:15:16.341 [info] > git rev-parse --show-toplevel [15ms]
+2025-12-21 20:15:16.379 [info] > git for-each-ref --sort -committerdate --format %(refname)%00%(objectname)%00%(*objectname) [40ms]
+2025-12-21 20:15:16.406 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/main refs/remotes/main [7ms]
+2025-12-21 20:15:16.412 [info] > git rev-parse --show-toplevel [34ms]
+2025-12-21 20:15:16.412 [info] [Model][doInitialScan] Initial repository scan completed - repositories (1), closed repositories (0), parent repositories (0), unsafe repositories (0)
+2025-12-21 20:15:16.414 [info] > git config --get --local branch.main.vscode-merge-base [3ms]
+2025-12-21 20:15:16.419 [info] > git config --get commit.template [13ms]
+2025-12-21 20:15:16.425 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/origin/main refs/remotes/origin/main [6ms]
+2025-12-21 20:15:16.437 [info] > git merge-base refs/heads/main refs/remotes/origin/main [7ms]
+2025-12-21 20:15:16.443 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/main refs/remotes/main [7ms]
+2025-12-21 20:15:16.445 [info] > git diff --name-status -z --diff-filter=ADMR --find-renames=50% 1b67b9c510c59d409b7128dddf4aab50e57f2e81...refs/remotes/origin/main -- [3ms]
+2025-12-21 20:15:16.454 [info] > git status -z -uall [4ms]
+2025-12-21 20:15:16.456 [info] > git for-each-ref --sort -committerdate --format %(refname)%00%(objectname)%00%(*objectname) [2ms]
+2025-12-21 20:15:16.624 [info] > git show --textconv :app.py [5ms]
+2025-12-21 20:15:16.625 [info] > git ls-files --stage -- app.py [1ms]
+2025-12-21 20:15:16.631 [info] > git cat-file -s d6838aa77105c45aaa7cfcd98eb423fd0498d74d [2ms]
+2025-12-21 20:15:16.652 [info] > git blame --root --incremental 1b67b9c510c59d409b7128dddf4aab50e57f2e81 -- app.py [3ms]
+2025-12-21 20:15:16.920 [info] > git check-ignore -v -z --stdin [2ms]
+2025-12-21 20:15:18.345 [info] > git show --textconv :templates/dashboard.html [7ms]
+2025-12-21 20:15:18.346 [info] > git ls-files --stage -- templates/dashboard.html [2ms]
+2025-12-21 20:15:18.351 [info] > git cat-file -s 8014e74e889560dd42793484e25163844a401ca2 [2ms]
+2025-12-21 20:15:18.428 [info] > git blame --root --incremental 1b67b9c510c59d409b7128dddf4aab50e57f2e81 -- templates/dashboard.html [3ms]
+2025-12-21 20:15:20.441 [info] > git show --textconv :templates/tasks.html [4ms]
+2025-12-21 20:15:20.442 [info] > git ls-files --stage -- templates/tasks.html [2ms]
+2025-12-21 20:15:20.447 [info] > git cat-file -s 1931cd32d3ad078245ae83ccd4280c1450ec455c [1ms]
+2025-12-21 20:15:20.460 [info] > git blame --root --incremental 1b67b9c510c59d409b7128dddf4aab50e57f2e81 -- templates/tasks.html [2ms]
+2025-12-21 20:16:29.865 [info] > git show --textconv :auth.py [5ms]
+2025-12-21 20:16:29.866 [info] > git ls-files --stage -- auth.py [1ms]
+2025-12-21 20:16:29.871 [info] > git cat-file -s 8a91f6f729408b0fff9cccad861a281b4b5f1b61 [1ms]
+2025-12-21 20:16:29.883 [info] > git blame --root --incremental 1b67b9c510c59d409b7128dddf4aab50e57f2e81 -- auth.py [3ms]

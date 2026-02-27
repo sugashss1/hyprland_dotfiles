@@ -31,12 +31,8 @@ mkdir -p "$PICTURES_DIR/Wallpapers"
 page=$((1 + RANDOM % 1000));
 response=$(curl "https://konachan.net/post.json?tags=rating%3Asafe&limit=1&page=$page")
 link=$(echo "$response" | jq '.[0].file_url' -r);
-tags=$(echo "$response" | jq '.[0].tags' -r);
-id=$(echo "$response" | jq '.[0].id' -r);
-
-
 ext=$(echo "$link" | awk -F. '{print $NF}')
-downloadPath="$PICTURES_DIR/Wallpapers/random_wallpaper $tags $id.$ext"
+downloadPath="$PICTURES_DIR/Wallpapers/random_wallpaper.$ext"
 illogicalImpulseConfigPath="$HOME/.config/illogical-impulse/config.json"
 currentWallpaperPath=$(jq -r '.background.wallpaperPath' $illogicalImpulseConfigPath)
 if [ "$downloadPath" == "$currentWallpaperPath" ]; then

@@ -1,0 +1,100 @@
+2025-12-22 07:21:13.713 [warning] Dir "/home/su/Documents/aa/multi_tenant/.pixi/envs" is not watchable (directory does not exist)
+2025-12-22 07:21:13.844 [error] Unable to check if shell integration is active [Error: Extension 'ms-python.python' CANNOT use API proposal: terminalDataWriteEvent.
+Its package.json#enabledApiProposals-property declares:  but NOT terminalDataWriteEvent.
+ The missing proposal MUST be added and you must start in extension development mode or use the following command line switch: --enable-proposed-api ms-python.python
+	at T (file:///usr/lib/code/out/vs/workbench/api/node/extensionHostProcess.js:110:34312)
+	at a.onDidWriteTerminalData (file:///usr/lib/code/out/vs/workbench/api/node/extensionHostProcess.js:212:111643)
+	at new m (/home/su/.vscode-oss/extensions/ms-python.python-2025.16.0-universal/out/client/extension.js:2:914480)
+	at ge (/home/su/.vscode-oss/extensions/ms-python.python-2025.16.0-universal/out/client/extension.js:2:1735641)
+	at /home/su/.vscode-oss/extensions/ms-python.python-2025.16.0-universal/out/client/extension.js:2:1739005
+	at /home/su/.vscode-oss/extensions/ms-python.python-2025.16.0-universal/out/client/extension.js:2:1739033
+	at Se (/home/su/.vscode-oss/extensions/ms-python.python-2025.16.0-universal/out/client/extension.js:2:1739100)
+	at /home/su/.vscode-oss/extensions/ms-python.python-2025.16.0-universal/out/client/extension.js:2:1739580
+	at we (/home/su/.vscode-oss/extensions/ms-python.python-2025.16.0-universal/out/client/extension.js:2:1739521)
+	at Pe (/home/su/.vscode-oss/extensions/ms-python.python-2025.16.0-universal/out/client/extension.js:2:1739555)
+	at /home/su/.vscode-oss/extensions/ms-python.python-2025.16.0-universal/out/client/extension.js:2:1736794
+	at /home/su/.vscode-oss/extensions/ms-python.python-2025.16.0-universal/out/client/extension.js:2:1738399
+	at Array.reduce (<anonymous>)
+	at /home/su/.vscode-oss/extensions/ms-python.python-2025.16.0-universal/out/client/extension.js:2:1738371
+	at /home/su/.vscode-oss/extensions/ms-python.python-2025.16.0-universal/out/client/extension.js:2:1738653
+	at /home/su/.vscode-oss/extensions/ms-python.python-2025.16.0-universal/out/client/extension.js:2:1739033
+	at Se (/home/su/.vscode-oss/extensions/ms-python.python-2025.16.0-universal/out/client/extension.js:2:1739100)
+	at /home/su/.vscode-oss/extensions/ms-python.python-2025.16.0-universal/out/client/extension.js:2:1739580
+	at we (/home/su/.vscode-oss/extensions/ms-python.python-2025.16.0-universal/out/client/extension.js:2:1739521)
+	at Pe (/home/su/.vscode-oss/extensions/ms-python.python-2025.16.0-universal/out/client/extension.js:2:1739555)
+	at /home/su/.vscode-oss/extensions/ms-python.python-2025.16.0-universal/out/client/extension.js:2:1736794
+	at /home/su/.vscode-oss/extensions/ms-python.python-2025.16.0-universal/out/client/extension.js:2:1766464
+	at /home/su/.vscode-oss/extensions/ms-python.python-2025.16.0-universal/out/client/extension.js:2:1766485
+	at e._get (/home/su/.vscode-oss/extensions/ms-python.python-2025.16.0-universal/out/client/extension.js:2:1765498)
+	at e._getButThrowIfAsync (/home/su/.vscode-oss/extensions/ms-python.python-2025.16.0-universal/out/client/extension.js:2:1765558)
+	at e.get (/home/su/.vscode-oss/extensions/ms-python.python-2025.16.0-universal/out/client/extension.js:2:1761267)
+	at e.dynamicValue (/home/su/.vscode-oss/extensions/ms-python.python-2025.16.0-universal/out/client/extension.js:2:1751000)
+	at /home/su/.vscode-oss/extensions/ms-python.python-2025.16.0-universal/out/client/extension.js:2:1737177
+	at Ee (/home/su/.vscode-oss/extensions/ms-python.python-2025.16.0-universal/out/client/extension.js:2:1737433)
+	at Se (/home/su/.vscode-oss/extensions/ms-python.python-2025.16.0-universal/out/client/extension.js:2:1739149)
+	at /home/su/.vscode-oss/extensions/ms-python.python-2025.16.0-universal/out/client/extension.js:2:1739580
+	at we (/home/su/.vscode-oss/extensions/ms-python.python-2025.16.0-universal/out/client/extension.js:2:1739521)
+	at Pe (/home/su/.vscode-oss/extensions/ms-python.python-2025.16.0-universal/out/client/extension.js:2:1739555)
+	at /home/su/.vscode-oss/extensions/ms-python.python-2025.16.0-universal/out/client/extension.js:2:1736794
+	at /home/su/.vscode-oss/extensions/ms-python.python-2025.16.0-universal/out/client/extension.js:2:1736728
+	at Array.map (<anonymous>)
+	at /home/su/.vscode-oss/extensions/ms-python.python-2025.16.0-universal/out/client/extension.js:2:1736699
+	at /home/su/.vscode-oss/extensions/ms-python.python-2025.16.0-universal/out/client/extension.js:2:1738399
+	at Array.reduce (<anonymous>)
+	at /home/su/.vscode-oss/extensions/ms-python.python-2025.16.0-universal/out/client/extension.js:2:1738371
+	at /home/su/.vscode-oss/extensions/ms-python.python-2025.16.0-universal/out/client/extension.js:2:1738653
+	at /home/su/.vscode-oss/extensions/ms-python.python-2025.16.0-universal/out/client/extension.js:2:1739033
+	at Se (/home/su/.vscode-oss/extensions/ms-python.python-2025.16.0-universal/out/client/extension.js:2:1739100)
+	at /home/su/.vscode-oss/extensions/ms-python.python-2025.16.0-universal/out/client/extension.js:2:1739580
+	at we (/home/su/.vscode-oss/extensions/ms-python.python-2025.16.0-universal/out/client/extension.js:2:1739521)
+	at Pe (/home/su/.vscode-oss/extensions/ms-python.python-2025.16.0-universal/out/client/extension.js:2:1739555)
+	at /home/su/.vscode-oss/extensions/ms-python.python-2025.16.0-universal/out/client/extension.js:2:1736794
+	at /home/su/.vscode-oss/extensions/ms-python.python-2025.16.0-universal/out/client/extension.js:2:1766464
+	at /home/su/.vscode-oss/extensions/ms-python.python-2025.16.0-universal/out/client/extension.js:2:1766485
+	at e._get (/home/su/.vscode-oss/extensions/ms-python.python-2025.16.0-universal/out/client/extension.js:2:1765498)
+	at e._getButThrowIfAsync (/home/su/.vscode-oss/extensions/ms-python.python-2025.16.0-universal/out/client/extension.js:2:1765558)
+	at e.get (/home/su/.vscode-oss/extensions/ms-python.python-2025.16.0-universal/out/client/extension.js:2:1761267)
+	at a.get (/home/su/.vscode-oss/extensions/ms-python.python-2025.16.0-universal/out/client/extension.js:2:568835)
+	at /home/su/.vscode-oss/extensions/ms-python.python-2025.16.0-universal/out/client/extension.js:2:478570
+	at async t.activateComponents (/home/su/.vscode-oss/extensions/ms-python.python-2025.16.0-universal/out/client/extension.js:2:476850)
+	at async /home/su/.vscode-oss/extensions/ms-python.python-2025.16.0-universal/out/client/extension.js:2:2701666
+	at async e (/home/su/.vscode-oss/extensions/ms-python.python-2025.16.0-universal/out/client/extension.js:2:2701198)
+	at async Ky.n (file:///usr/lib/code/out/vs/workbench/api/node/extensionHostProcess.js:116:13398)
+	at async Ky.m (file:///usr/lib/code/out/vs/workbench/api/node/extensionHostProcess.js:116:13361)
+	at async Ky.l (file:///usr/lib/code/out/vs/workbench/api/node/extensionHostProcess.js:116:12817)]
+2025-12-22 07:21:13.858 [info] Python interpreter path: ./.venv/bin/python
+2025-12-22 07:21:13.880 [info] > pyenv which python
+2025-12-22 07:21:13.880 [info] cwd: .
+2025-12-22 07:21:13.994 [error] [
+  'Failed to activate a workspace, Class name = v, completed in 146ms, has a falsy return value, Arg 1: <Uri:/home/su/Documents/aa/multi_tenant/auth.py>, Arg 2: {"started":1766368273666}, Return Value: undefined',
+  [Error: Extension 'ms-python.python' CANNOT use API proposal: testObserver.
+  Its package.json#enabledApiProposals-property declares:  but NOT testObserver.
+   The missing proposal MUST be added and you must start in extension development mode or use the following command line switch: --enable-proposed-api ms-python.python
+  	at T (file:///usr/lib/code/out/vs/workbench/api/node/extensionHostProcess.js:110:34312)
+  	at get testResults (file:///usr/lib/code/out/vs/workbench/api/node/extensionHostProcess.js:212:104674)
+  	at x.activate (/home/su/.vscode-oss/extensions/ms-python.python-2025.16.0-universal/out/client/extension.js:2:946549)
+  	at /home/su/.vscode-oss/extensions/ms-python.python-2025.16.0-universal/out/client/extension.js:2:2457
+  	at Array.map (<anonymous>)
+  	at v.activateWorkspace (/home/su/.vscode-oss/extensions/ms-python.python-2025.16.0-universal/out/client/extension.js:2:2447)]
+]
+2025-12-22 07:21:13.995 [error] Failure during activation. [Error: Extension 'ms-python.python' CANNOT use API proposal: testObserver.
+Its package.json#enabledApiProposals-property declares:  but NOT testObserver.
+ The missing proposal MUST be added and you must start in extension development mode or use the following command line switch: --enable-proposed-api ms-python.python
+	at T (file:///usr/lib/code/out/vs/workbench/api/node/extensionHostProcess.js:110:34312)
+	at get testResults (file:///usr/lib/code/out/vs/workbench/api/node/extensionHostProcess.js:212:104674)
+	at x.activate (/home/su/.vscode-oss/extensions/ms-python.python-2025.16.0-universal/out/client/extension.js:2:946549)
+	at /home/su/.vscode-oss/extensions/ms-python.python-2025.16.0-universal/out/client/extension.js:2:2457
+	at Array.map (<anonymous>)
+	at v.activateWorkspace (/home/su/.vscode-oss/extensions/ms-python.python-2025.16.0-universal/out/client/extension.js:2:2447)]
+2025-12-22 07:21:13.995 [error] sendStartupTelemetry() failed. [Error: Extension 'ms-python.python' CANNOT use API proposal: testObserver.
+Its package.json#enabledApiProposals-property declares:  but NOT testObserver.
+ The missing proposal MUST be added and you must start in extension development mode or use the following command line switch: --enable-proposed-api ms-python.python
+	at T (file:///usr/lib/code/out/vs/workbench/api/node/extensionHostProcess.js:110:34312)
+	at get testResults (file:///usr/lib/code/out/vs/workbench/api/node/extensionHostProcess.js:212:104674)
+	at x.activate (/home/su/.vscode-oss/extensions/ms-python.python-2025.16.0-universal/out/client/extension.js:2:946549)
+	at /home/su/.vscode-oss/extensions/ms-python.python-2025.16.0-universal/out/client/extension.js:2:2457
+	at Array.map (<anonymous>)
+	at v.activateWorkspace (/home/su/.vscode-oss/extensions/ms-python.python-2025.16.0-universal/out/client/extension.js:2:2447)]
+2025-12-22 07:21:14.531 [info] Starting Jedi language server for multi_tenant.
+2025-12-22 07:36:47.102 [info] CreateEnv Trigger - Skipping for /home/su/Documents/aa/multi_tenant/app.py
+2025-12-22 07:36:47.146 [info] Send text to terminal: source /home/su/Documents/aa/multi_tenant/.venv/bin/activate

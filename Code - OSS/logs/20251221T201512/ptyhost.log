@@ -1,0 +1,25 @@
+2025-12-21 20:15:14.626 [info] Revived process, old id ec4fbaf7e0988dafc18500c70d3f7ccf-1 -> new id 1
+2025-12-21 20:15:14.626 [info] Revived process, old id ec4fbaf7e0988dafc18500c70d3f7ccf-2 -> new id 2
+2025-12-21 20:15:14.626 [info] Revived process, old id ec4fbaf7e0988dafc18500c70d3f7ccf-3 -> new id 3
+2025-12-21 20:15:14.626 [info] Revived process, old id ec4fbaf7e0988dafc18500c70d3f7ccf-4 -> new id 4
+2025-12-21 20:15:14.626 [info] Revived process, old id ec4fbaf7e0988dafc18500c70d3f7ccf-5 -> new id 5
+2025-12-21 20:15:14.683 [info] Expanding terminal instance, old id ec4fbaf7e0988dafc18500c70d3f7ccf-1 -> new id 1
+2025-12-21 20:15:14.683 [info] Expanding terminal instance, old id ec4fbaf7e0988dafc18500c70d3f7ccf-2 -> new id 2
+2025-12-21 20:15:14.683 [info] Expanding terminal instance, old id ec4fbaf7e0988dafc18500c70d3f7ccf-3 -> new id 3
+2025-12-21 20:15:14.683 [info] Expanding terminal instance, old id ec4fbaf7e0988dafc18500c70d3f7ccf-4 -> new id 4
+2025-12-21 20:15:14.683 [info] Expanding terminal instance, old id ec4fbaf7e0988dafc18500c70d3f7ccf-5 -> new id 5
+2025-12-21 20:15:15.366 [warning] Persistent process "1": Process had no disconnect runners but was an orphan
+2025-12-21 20:15:15.366 [info] Persistent process reconnection "1"
+2025-12-21 20:15:15.367 [warning] Persistent process "2": Process had no disconnect runners but was an orphan
+2025-12-21 20:15:15.367 [info] Persistent process reconnection "2"
+2025-12-21 20:15:15.367 [warning] Persistent process "5": Process had no disconnect runners but was an orphan
+2025-12-21 20:15:15.367 [info] Persistent process reconnection "5"
+2025-12-21 20:15:15.367 [warning] Persistent process "3": Process had no disconnect runners but was an orphan
+2025-12-21 20:15:15.367 [info] Persistent process reconnection "3"
+2025-12-21 20:15:15.367 [warning] Persistent process "4": Process had no disconnect runners but was an orphan
+2025-12-21 20:15:15.367 [info] Persistent process reconnection "4"
+2025-12-21 20:15:15.467 [info] Persistent process "1": Replaying 4374 chars and 1 size events
+2025-12-21 20:15:15.520 [info] Persistent process "2": Replaying 7361 chars and 1 size events
+2025-12-21 20:15:15.528 [info] Persistent process "5": Replaying 3136 chars and 1 size events
+2025-12-21 20:15:15.535 [info] Persistent process "3": Replaying 7597 chars and 1 size events
+2025-12-21 20:15:15.539 [info] Persistent process "4": Replaying 1183 chars and 1 size events

@@ -1,6 +1,9 @@
 [DetailsMode]
 PreviewSize=32
 
+[ExtractDialog]
+1920x1080 screen: Window-Maximized=true
+
 [General]
 GlobalViewProps=false
 ShowFullPath=true
@@ -16,3 +19,6 @@ MenuBar=Disabled
 
 [PreviewSettings]
 Plugins=ffmpegthumbnailer,appimagethumbnail,audiothumbnail,avif,blenderthumbnail,comicbookthumbnail,cursorthumbnail,djvuthumbnail,ebookthumbnail,exrthumbnail,directorythumbnail,fontthumbnail,heif,imagethumbnail,jpegthumbnail,jxl,kraorathumbnail,windowsexethumbnail,windowsimagethumbnail,mobithumbnail,opendocumentthumbnail,gsthumbnail,rawthumbnail,librsvg,svgthumbnail,ffmpegthumbs,gdk-pixbuf-thumbnailer,gsf-office
+
+[Search]
+Location=Everywhere

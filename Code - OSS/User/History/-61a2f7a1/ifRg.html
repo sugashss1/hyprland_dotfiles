@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+{% include "_navbar.html" %}
+
+<div class="container">
+  <div class="card">
+    <h2>Add Task</h2>
+    <input id="taskInput" placeholder="Task title">
+    <button onclick="addTask()">Add</button>
+  </div>
+
+  <div class="card">
+    <h2>Tasks</h2>
+    <ul id="taskList"></ul>
+  </div>
+</div>
+
+<script>
+let tasks = [];
+
+function renderTasks() {
+  const list = document.getElementById("taskList");
+  list.innerHTML = "";
+  tasks.forEach((task, index) => {
+    list.innerHTML += `
+      <li>
+        <input type="checkbox" ${task.done ? "checked" : ""} 
+               onchange="toggleTask(${index})">
+        <span style="${task.done ? 'text-decoration:line-through' : ''}">
+          ${task.title}
+        </span>
+        <button onclick="editTask(${index})">✏️</button>
+        <button onclick="deleteTask(${index})">🗑️</button>
+      </li>
+    `;
+  });
+}
+
+function addTask() {
+  const input = document.getElementById("taskInput");
+  tasks.push({ title: input.value, done: false });
+  input.value = "";
+  renderTasks();
+}
+
+function editTask(index) {
+  const newTitle = prompt("Edit task", tasks[index].title);
+  if (newTitle) tasks[index].title = newTitle;
+  renderTasks();
+}
+
+function deleteTask(index) {
+  tasks.splice(index, 1);
+  renderTasks();
+}
+
+function toggleTask(index) {
+  tasks[index].done = !tasks[index].done;
+  renderTasks();
+}
+
+renderTasks();
+</script>
+
+</body>
+</html>
